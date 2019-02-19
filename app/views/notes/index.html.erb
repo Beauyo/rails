@@ -1,6 +1,9 @@
 <h1>Notes</h1>
-<% @notes.each do |page| %>
+<p> <%= link_to "New note Page", new_note_path %> </p>
+<% @notes.each do |note| %>
   <h2><%= note.title %></h2>
-  <% link_to "show Note", note_path(note) %>
-  <% end %>
+  <%= link_to "show Note", note_path(note.id) %>
+  <%= link_to "Edit notes", edit_note_path(note.id) %>
+  <%= link_to "Delete", note_path(note.id), method: :delete %>
+<% end %>
 
